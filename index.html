@@ -91,3 +91,38 @@ function reveal(id){document.getElementById(id).classList.toggle('show')}
 function answer(btn,id,choice){let el=document.getElementById(id);el.textContent=choice==='Jhilmil balloons'?'CORRECT!! 🎉 Deha has trained you well. Balloon memory: unlocked. 🎈':'Incorrect, sir jiii. Please retake this extremely important girlfriend exam. 😂';}
 const fates=['Your fate: give Deha a compliment right now. No “idk” allowed. 😌💗','Your fate: send one cute message and make it specific. “You are nice” is not enough, sir. 😭','Your fate: mentally reserve a date for Durga Puja. The balloon department is waiting. 🎈'];
 function fate(n){document.getElementById('fateresult').textConten
+function allGifts(){
+  for(let i=0;i<4;i++){
+    document.getElementById('gift'+i).classList.add('show');
+  }
+  confetti();
+}
+
+function balloonPop(){
+  document.getElementById('balloonresult').textContent =
+    'CONTRACT ACCEPTED! 🎈💗 Jhilmil balloons are officially on the list, sir jiii!';
+  confetti();
+}
+
+function confetti(){
+  const symbols=['💗','💕','✨','🎀','💖','🌸'];
+
+  for(let i=0;i<35;i++){
+    const piece=document.createElement('span');
+    piece.className='confetti';
+    piece.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+
+    piece.style.left=Math.random()*100+'vw';
+    piece.style.animationDuration=(2+Math.random()*3)+'s';
+    piece.style.fontSize=(12+Math.random()*18)+'px';
+
+    document.body.appendChild(piece);
+
+    setTimeout(function(){
+      piece.remove();
+    },5000);
+  }
+}
+</script>
+</body>
+</html>
